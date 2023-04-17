@@ -56,7 +56,7 @@ const pinkPrice = .55
 let totalAcres = 0
 
 for (i = 0; i < fujiAcres.length; i++){
-    totalAcres += fujiAcres[i] += galaAcres[i] += pinkAcres[i]
+    totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i]
 }
 console.log(totalAcres);
 
@@ -195,20 +195,19 @@ The for loop runs depending on the length of fuji' acres array so that it consta
 The apple type's lps value is calculated on the tons * lbs giving appletypePounds that value.
 */
 
-let fujiPounds = []
-let galaPounds = []
-let pinkPounds = []
+let fujiPounds = 0
+let galaPounds = 0
+let pinkPounds = 0
 let acreLbs = 2000
 
 for (i = 0; i < fujiAcres.length; i++){
-    fujiPounds.push(fujiTons[i] * acreLbs)
-    galaPounds.push(galaTons[i] * acreLbs)
-    pinkPounds.push(pinkTons[i] * acreLbs)
+    fujiPounds = fujiTons[i] * acreLbs
+    galaPounds = galaTons[i] * acreLbs
+    pinkPounds = pinkTons[i] * acreLbs
 }
 console.log(fujiPounds)
 console.log(galaPounds)
 console.log(pinkPounds)
-
 
 
 // PROBLEM 6
@@ -234,20 +233,11 @@ There are three for loops that run based on the legth of the lbs list, then calc
 I could have made this simpler but this is the only way it made sense in my head.
 */
 
-let fujiProfit = []
-let galaProfit = []
-let pinkProfit = []
 
-for (let i = 0; i < fujiPounds.length; i++){
-    fujiProfit.push(fujiPounds[i] * fujiPrice)
-}
-for (let i = 0; i < galaPounds.length; i++) {
-    galaProfit.push(galaPounds[i] * galaPrice);
-}
+let fujiProfit = fujiPounds * fujiPrice
+let galaProfit = galaPounds * galaPrice
+let pinkProfit = pinkPounds * pinkPrice
 
-for (let i = 0; i < pinkPounds.length; i++) {
-    pinkProfit.push(pinkPounds[i] * pinkPrice);
-}
 console.log('-----------');
 console.log(fujiProfit);
 console.log(galaProfit);
@@ -277,6 +267,6 @@ then add the other arrays together to get a totalProfit value.
 
 console.log('----------------------------------');
 
-let totalProfit = fujiProfit.reduce((acc, cur) => acc + cur) + galaProfit.reduce((acc, cur) => acc + cur) + pinkProfit.reduce((acc, cur) => acc + cur)
+let totalProfit = fujiProfit + galaProfit + pinkProfit
 
 console.log(totalProfit);
